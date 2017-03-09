@@ -1,3 +1,4 @@
+import { Color } from './../shared/color.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./color-square.component.css']
 })
 export class ColorSquareComponent implements OnInit {
+  color: Color;
+
+  onColorClicked() {
+    alert("color clicked!");
+  }
 
   constructor() { }
 
   ngOnInit() {
-
+    this.color = new Color("#123456");
   }
 
 }

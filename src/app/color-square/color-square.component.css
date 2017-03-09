@@ -1,0 +1,25 @@
+.color-swatch {
+	height: 100px;
+	width: 100px;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.color-square { 
+	display: inline-block;
+	margin: 7px;
+}
+
+.delete {
+	height: 16px;
+	width: 16px;
+	padding-top: 2px;
+	float: right;
+	cursor: pointer;
+	
+}
+
+.color-value {
+	float: left;
+	padding-top: 2px;
+}
