@@ -8,7 +8,6 @@ export class Color {
 
     constructor(hexCode: String) {
         this.hexCode = hexCode;
-        this.id = null; //TODO figiure this out
 
         // Extract the parts of the hex code into their rgb counterparts.
         // Ignore the '#' symbol.
