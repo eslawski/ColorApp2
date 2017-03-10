@@ -1,12 +1,12 @@
 export class Color {
     public id: number;
-    public hexCode: string;
+    public hexCode: String;
     public red: number;
     public green: number;
     public blue: number;
     public isLight: boolean;
 
-    constructor(hexCode: string) {
+    constructor(hexCode: String) {
         this.hexCode = hexCode;
         this.id = null; //TODO figiure this out
 

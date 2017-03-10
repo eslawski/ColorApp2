@@ -7,12 +7,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ColorSquareComponent } from './color-square/color-square.component';
 import { ColorCollectionComponent } from './color-collection/color-collection.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ColorSquareComponent,
-    ColorCollectionComponent
+    ColorCollectionComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

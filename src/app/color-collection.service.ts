@@ -17,4 +17,8 @@ export class ColorCollectionService {
     return this.colors;
   }
 
+  addColor(color: Color) {
+    this.colors.push(color);
+  }
+
 }
