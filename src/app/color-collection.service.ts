@@ -21,4 +21,8 @@ export class ColorCollectionService {
     this.colors.push(color);
   }
 
+  deleteColor(color: Color) {
+    this.colors.splice(this.colors.indexOf(color), 1);
+  }
+
 }

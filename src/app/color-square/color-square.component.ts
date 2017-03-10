@@ -1,3 +1,4 @@
+import { ColorCollectionService } from 'app/color-collection.service';
 import { Color } from './../shared/color.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -13,9 +14,13 @@ export class ColorSquareComponent implements OnInit {
     alert("color clicked!");
   }
 
-  constructor() { }
+  constructor(private colorCollectionService: ColorCollectionService) { }
 
   ngOnInit() {
+  }
+
+  onDeleteClicked(color: Color) {
+    this.colorCollectionService.deleteColor(color);
   }
 
 }
