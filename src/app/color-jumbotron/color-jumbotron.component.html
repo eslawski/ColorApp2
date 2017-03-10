@@ -1,4 +1,7 @@
 <div class="jumbotron" [style.background-color]="getBackgroundColor()">
-  <h1 *ngIf="jumbotronColor" class="hexValue">{{jumbotronColor.hexCode}}</h1>
-  <h3 class="rgbValue">RGB(123, 89, 45)</h3>
+  <div class="container" *ngIf="jumbotronColor" [class.darkColor]="!jumbotronColor.isLight">
+    <h1  class="hexValue">{{jumbotronColor.hexCode}}</h1>
+    <h3 class="rgbValue">RBB({{jumbotronColor.red}}, {{jumbotronColor.green}}, {{jumbotronColor.blue}})</h3>
+  </div>
+  
 </div>
