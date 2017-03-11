@@ -58,6 +58,11 @@ export class ToolbarComponent implements OnInit {
     this.colorCollectionService.generateRainbow(parseInt(this.rainbowSteps));
   }
 
+  onClearClicked() {
+    this.colorCollectionService.clearColors();
+    this.currentColorService.setCurrentColor(null);
+  }
+
 /**
  * Validates the provided hex string and returns an error message if
  * necessary. Returns null if the hex string is valid.

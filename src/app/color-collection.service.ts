@@ -18,7 +18,7 @@ export class ColorCollectionService {
   }
 
   addColor(color: Color) {
-    this.colors.push(color);
+    this.colors.unshift(color);
   }
 
   deleteColor(color: Color) {
@@ -33,5 +33,10 @@ export class ColorCollectionService {
       let blue = Math.floor(Math.sin(i*TWO_PI/steps + 2*TWO_PI/3) * 127 + 128);
       this.addColor(new Color(Color.byte2Hex(red) + Color.byte2Hex(green) + Color.byte2Hex(blue)));
     }
+  }
+
+  clearColors() {
+    // Clear the array while maintaining reference to the original array
+    this.colors.splice(0, this.colors.length);
   }
 }

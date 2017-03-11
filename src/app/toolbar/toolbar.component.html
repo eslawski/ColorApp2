@@ -11,7 +11,7 @@
     </div>
   </div>
 
-    <div class="col-lg-2">
+  <div class="col-lg-2">
     <div class="input-group">
       <input type="text" class="form-control" [(ngModel)]="rainbowSteps" placeholder="steps" maxlength="2">
       <span class="input-group-btn">
@@ -19,7 +19,13 @@
       </span>
     </div>
   </div>
+
+  <div class="col-lg-1">
+    <button class="btn btn-danger" (click)="onClearClicked()">Clear</button>
+  </div>
 </div>
+
+
 
 <div class="row">
   <div class="errorMessage text-danger">
