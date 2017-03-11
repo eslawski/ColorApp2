@@ -25,4 +25,13 @@ export class ColorCollectionService {
     this.colors.splice(this.colors.indexOf(color), 1);
   }
 
+  generateRainbow(steps: number) {
+    const TWO_PI = Math.PI*2;
+    for (var i = 0; i < steps+1; ++i) {
+      let red = Math.floor(Math.sin(i*TWO_PI/steps + 0) * 127 + 128);
+      let green = Math.floor(Math.sin(i*TWO_PI/steps + TWO_PI/3) * 127 + 128);
+      let blue = Math.floor(Math.sin(i*TWO_PI/steps + 2*TWO_PI/3) * 127 + 128);
+      this.addColor(new Color(Color.byte2Hex(red) + Color.byte2Hex(green) + Color.byte2Hex(blue)));
+    }
+  }
 }

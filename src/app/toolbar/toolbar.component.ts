@@ -12,6 +12,7 @@ export class ToolbarComponent implements OnInit {
 
   hexString: String;
   errorMessage: String;
+  rainbowSteps: string;
 
    // Necessary for updating the current color
   _subscription;
@@ -50,6 +51,11 @@ export class ToolbarComponent implements OnInit {
   onAddClicked() {
     let color = new Color(this.hexString);
     this.colorCollectionService.addColor(color);
+  }
+
+  onRainbowClicked() {
+    // TODO validate
+    this.colorCollectionService.generateRainbow(parseInt(this.rainbowSteps));
   }
 
 /**

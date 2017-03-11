@@ -34,8 +34,7 @@ export class CurrentColorService {
     let red = Math.min(255, color.red + (Math.ceil((255-color.red)/TINT_FACTOR)));
     let green = Math.min(255, color.green + (Math.ceil((255-color.green)/TINT_FACTOR)));
     let blue = Math.min(255, color.blue + (Math.ceil((255-color.blue)/TINT_FACTOR)));
-    this.setCurrentColor(new Color(this.byte2Hex(red) + this.byte2Hex(green) + this.byte2Hex(blue)));
-
+    this.setCurrentColor(new Color(Color.byte2Hex(red) + Color.byte2Hex(green) + Color.byte2Hex(blue)));
   }
 
   shadeCurrentColor(color: Color) {
@@ -43,12 +42,7 @@ export class CurrentColorService {
     let red = Math.max(0, color.red - (Math.ceil((color.red)/SHADE_FACTOR)));
     let green = Math.max(0, color.green - (Math.ceil((color.green)/SHADE_FACTOR)));
     let blue = Math.max(0, color.blue - (Math.ceil((color.blue)/SHADE_FACTOR)));
-    this.setCurrentColor(new Color(this.byte2Hex(red) + this.byte2Hex(green) + this.byte2Hex(blue)));
+    this.setCurrentColor(new Color(Color.byte2Hex(red) + Color.byte2Hex(green) + Color.byte2Hex(blue)));
   }
-
-  byte2Hex(n) {
-    var nybHexString = "0123456789ABCDEF";
-    return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
-}
 
 }
