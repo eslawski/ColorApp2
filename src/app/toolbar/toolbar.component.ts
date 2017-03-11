@@ -13,10 +13,27 @@ export class ToolbarComponent implements OnInit {
   hexString: String;
   errorMessage: String;
 
+   // Necessary for updating the current color
+  _subscription;
+
   constructor(private colorCollectionService : ColorCollectionService,
-   private currentColorService: CurrentColorService) { }
+   private currentColorService: CurrentColorService) {
+      // Subscribe to the color change event
+      this._subscription = currentColorService.colorChange.subscribe((color) => {
+        if(color != null) {
+          this.hexString = color.hexCode;
+        }
+        
+      });
+   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    if(this._subscription != null) {
+      this._subscription.unsubscribe();
+    }
   }
 
   onHexStringChange($event) {
