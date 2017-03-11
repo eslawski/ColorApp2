@@ -8,15 +8,7 @@ import { Subject } from "@angular/core/src/facade/async";
 @Injectable()
 export class CurrentColorService {
   // Represents the currently selected color, or null if none.
-  currentColor: Color;
-
-  // The 'currentColor' does not have a shared memory space across
-  // all the components that use it. As a result, changes made
-  // in the ColorSquareComponent do not affect the ColorJumbotronComponent.
-  // As a result we need to setup this subscriber. Note, this is not
-  // necessary for arrays because they are treated as shared memory space
-  // in javascript. 
-  colorChange: Subject<Color> = new Subject<Color>();
+  public currentColor: Color;
 
   constructor() { 
     this.currentColor = new Color("#123456");
@@ -27,8 +19,13 @@ export class CurrentColorService {
   }
 
   setCurrentColor(color: Color) {
-    this.currentColor = color;
-    this.colorChange.next(this.currentColor);
+    // Must perform deep copy of the incoming color otherwise the reference
+    // to the current color is lost. An alternative to deep copying the original
+    // object would be to use subscribers. See earlier commit. 
+    this.currentColor.hexCode = color.hexCode;
+    this.currentColor.red = color.red;
+    this.currentColor.blue = color.blue;
+    this.currentColor.isLight = color.isLight;
   }
 
 }

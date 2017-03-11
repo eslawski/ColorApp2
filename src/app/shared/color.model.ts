@@ -1,5 +1,4 @@
 export class Color {
-    public id: number;
     public hexCode: String;
     public red: number;
     public green: number;

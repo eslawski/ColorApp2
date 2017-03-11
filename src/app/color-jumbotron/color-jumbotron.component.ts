@@ -10,23 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class ColorJumbotronComponent implements OnInit {
   jumbotronColor: Color;
 
-  // Necessary for updating the current jumbotron color
-  _subscription;
-
   constructor(private currentColorService: CurrentColorService) { 
     this.jumbotronColor = this.currentColorService.getCurrentColor();
-    this._subscription = currentColorService.colorChange.subscribe((value) => {
-      this.jumbotronColor = value;
-    });
   }
 
   ngOnInit() {}
-
-  ngOnDestroy() {
-    if(this._subscription != null) {
-      this._subscription.unsubscribe();
-    }
-  }
 
   getBackgroundColor() {
     if(this.jumbotronColor) {
