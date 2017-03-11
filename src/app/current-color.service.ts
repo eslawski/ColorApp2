@@ -10,8 +10,12 @@ export class CurrentColorService {
   // Represents the currently selected color, or null if none.
   public currentColor: Color;
 
+  // Instead of utilizing shared memory space setup a mechanism by
+  // which components can subscribe to color changes.
+  colorChange: Subject<Color> = new Subject<Color>();
+
   constructor() { 
-    this.currentColor = new Color("#123456");
+    this.currentColor = null;
   }
 
   getCurrentColor() {
@@ -19,13 +23,10 @@ export class CurrentColorService {
   }
 
   setCurrentColor(color: Color) {
-    // Must perform deep copy of the incoming color otherwise the reference
-    // to the current color is lost. An alternative to deep copying the original
-    // object would be to use subscribers. See earlier commit. 
-    this.currentColor.hexCode = color.hexCode;
-    this.currentColor.red = color.red;
-    this.currentColor.blue = color.blue;
-    this.currentColor.isLight = color.isLight;
+    // Note this is not a deep copy which is why we need to use
+    // a subscriber to notify our components of changes.
+    this.currentColor = color;
+    this.colorChange.next(this.currentColor);
   }
 
 }

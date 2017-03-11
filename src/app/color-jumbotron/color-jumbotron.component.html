@@ -1,7 +1,13 @@
-<div class="jumbotron" [style.background-color]="getBackgroundColor()">
-  <div class="container" *ngIf="jumbotronColor" [class.darkColor]="!jumbotronColor.isLight">
-    <h1  class="hexValue">{{jumbotronColor.hexCode}}</h1>
-    <h3 class="rgbValue">RGB({{jumbotronColor.red}}, {{jumbotronColor.green}}, {{jumbotronColor.blue}})</h3>
+<div class="jumbotron" >
+  <div class="container-fluid" *ngIf="jumbotronColor" [style.background-color]="getBackgroundColor()">
+    <div class="container"[class.darkColor]="!jumbotronColor.isLight">
+      <h1  class="hexValue">{{jumbotronColor.hexCode}}</h1>
+      <h3 class="rgbValue">RGB({{jumbotronColor.red}}, {{jumbotronColor.green}}, {{jumbotronColor.blue}})</h3>
+    </div>
+  </div>
+  <div class="container" *ngIf="!jumbotronColor">
+      <h1  class="hexValue">Quick Colors</h1>
+      <h3 class="rgbValue">generate hexidecimal colors quickly</h3>
   </div>
   
 </div>
