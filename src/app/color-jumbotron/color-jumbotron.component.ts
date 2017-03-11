@@ -40,4 +40,12 @@ export class ColorJumbotronComponent implements OnInit {
     }
   }
 
+  onTintClick(color: Color) {
+    this.currentColorService.tintCurrentColor(this.jumbotronColor);
+  }
+
+  onShadeClick(color: Color) {
+    this.currentColorService.shadeCurrentColor(this.jumbotronColor);
+  }
+
 }

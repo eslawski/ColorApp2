@@ -1,13 +1,22 @@
 <div class="jumbotron" [style.background-color]="getBackgroundColor()">
   <div class="container-fluid" *ngIf="jumbotronColor">
-    <div class="container"[class.darkColor]="!jumbotronColor.isLight">
-      <h1  class="hexValue">#{{jumbotronColor.hexCode}}</h1>
+    <div class="container-fluid"[class.darkColor]="!jumbotronColor.isLight">
+      <div class="row">
+        <div class="col-lg-4 glyphicon glyphicon-minus-sign tint" (click)="onTintClick(jumbotronColor)"></div>
+        <h1  class="col-lg-4 hexValue">#{{jumbotronColor.hexCode}}</h1>
+        <div class="col-lg-4 glyphicon glyphicon-plus-sign shade" (click)="onShadeClick(jumbotronColor)"></div>
+      </div>
+    
       <h3 class="rgbValue">RGB({{jumbotronColor.red}}, {{jumbotronColor.green}}, {{jumbotronColor.blue}})</h3>
     </div>
   </div>
-  <div class="container" *ngIf="!jumbotronColor">
-      <h1  class="appTitle">Quick Colors</h1>
-      <h3 class="instructions">generate hexidecimal colors quickly</h3>
+  <div class="container-fluid" *ngIf="!jumbotronColor">
+    <div class="row">
+      <h1 class="col-lg-12 appTitle">Quick Colors</h1>
+      <h3 class="col-lg-12 instructions">generate hexidecimal colors quickly</h3>
+    </div>
+      
+      
   </div>
   
 </div>
