@@ -1,5 +1,7 @@
-<div>
-      <color-square
-             *ngFor="let color of colors" [color]="color">
-      </color-square>
+<div class="container-fluid">
+	<div class="row">
+    <div class="col-lg-2 no-padding" *ngFor="let color of colors">
+      <color-square [color]="color"></color-square>
+    </div>
+	</div>
 </div>

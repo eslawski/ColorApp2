@@ -23,7 +23,6 @@ export class ToolbarComponent implements OnInit {
         if(color != null) {
           this.hexString = color.hexCode;
         }
-        
       });
    }
 

@@ -1,3 +1,6 @@
-<div class="color-swatch" [style.background-color]="color.hexCode" (click)="onColorClicked()"></div>
-<div class="color-value">{{color.hexCode}}</div>
-<i class="glyphicon glyphicon-trash delete" (click)="onDeleteClicked(color)"></i>
+<div class="color-swatch" [style.background-color]="color.hexCode" (click)="onColorClicked()">
+  <div class="color-info" [class.darkColor]="!color.isLight">
+    <div class="color-value">{{color.hexCode}}</div>
+    <i class="glyphicon glyphicon-trash delete" (click)="onDeleteClicked(color)"></i>
+  </div>
+</div>
