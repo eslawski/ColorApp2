@@ -32,9 +32,8 @@ export class ColorJumbotronComponent implements OnInit {
 
   getBackgroundColor() {
     if(this.jumbotronColor) {
-      console.log("hex code: " + this.jumbotronColor.hexCode);
       // If a color is selected use that as the background.
-      return this.jumbotronColor.hexCode;
+      return "#" + this.jumbotronColor.hexCode;
     } else {
       // Otherwise show a default color.
       return "#CCCCCC";

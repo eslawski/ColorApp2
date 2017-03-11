@@ -25,4 +25,8 @@ export class ColorSquareComponent implements OnInit {
     this.CurrentColorService.setCurrentColor(this.color);
   }
 
+  getBackgroundColor() {
+    return "#" + this.color.hexCode;
+  }
+
 }
