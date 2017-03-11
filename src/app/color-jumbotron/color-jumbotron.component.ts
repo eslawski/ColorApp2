@@ -19,7 +19,7 @@ export class ColorJumbotronComponent implements OnInit {
     // Subscribe to the color change event
     this._subscription = currentColorService.colorChange.subscribe((value) => {
       this.jumbotronColor = value;
-    })
+    });
   }
 
   ngOnInit() {}

@@ -1,3 +1,7 @@
 .btn {
     outline: none;
 }
+
+.errorMessage {
+    height: 20px;
+}
