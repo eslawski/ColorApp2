@@ -1,5 +1,5 @@
-<color-jumbotron></color-jumbotron>
+<color-jumbotron [message]="message"></color-jumbotron>
 <div class="container-fluid">
-  <toolbar></toolbar>
+  <toolbar (errorStateChanged)="handleErrorStateChanged($event)"></toolbar>
   <color-collection></color-collection>
 </div>

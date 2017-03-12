@@ -1,7 +1,7 @@
 import { CurrentColorService } from './../current-color.service';
 import { Color } from './../shared/color.model';
 import { ColorCollectionService } from 'app/color-collection.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'toolbar',
@@ -11,8 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
 
   hexString: String;
-  errorMessage: String;
   rainbowSteps: string;
+
+  // Triggers when the user encounters and error or does something to address
+  // correct their error.
+  @Output() errorStateChanged: EventEmitter<string> = new EventEmitter<string>();
 
    // Necessary for updating the current color
   _subscription;
@@ -39,11 +42,22 @@ export class ToolbarComponent implements OnInit {
     }
   }
 
+  clearError() {
+    this.errorStateChanged.next(null);
+  }
+
   onHexStringChange($event) {
     this.hexString = $event;
-    this.errorMessage = this.validateHexString(this.hexString);
+    let error = this.validateHexString(this.hexString);
+
+    // Always clear the error right when the user types
+    this.clearError();
     
-    if(this.errorMessage == null) {
+    // As the user types, if the hex color is valid take advantage
+    // of the two way binding to show them their color instantly.
+    // If it is not valid do nothing, validation will happen once
+    // they try to click add.
+    if(error == null) {
       this.hexString = this.hexString.toUpperCase(); 
       this.currentColorService.setCurrentColor(new Color(this.hexString));
     } else {
@@ -52,8 +66,17 @@ export class ToolbarComponent implements OnInit {
   }
 
   onAddClicked() {
-    let color = new Color(this.hexString);
-    this.colorCollectionService.addColor(color);
+    let error = this.validateHexString(this.hexString);
+    if(error == null) {
+      // The hex string was formatted properly. Add it to the collection.
+      let color = new Color(this.hexString);
+      this.colorCollectionService.addColor(color);
+    } else {
+      // The hex string was invalid. Inform our parent so we can display
+      // the error message in the jumbotron.
+      this.errorStateChanged.next(error);
+    }
+
   }
 
   onRainbowClicked() {
@@ -71,14 +94,14 @@ export class ToolbarComponent implements OnInit {
  */
   validateHexString(hexString: String) {
     if(hexString.length != 6) {
-      return "Hex code too short";
+      return "Error: hex code too short";
     }
 
       // Validate the characters of the hexString
       let validHexChars = "1234567890ABCDEF";
       for(let i = 0; i < hexString.length; i++) {
         if(validHexChars.indexOf(hexString[i]) == -1) {
-          return "Valid characters are 0-9 or A-F";
+          return "Error: valid characters are 0-9 or A-F";
         }
       }
 

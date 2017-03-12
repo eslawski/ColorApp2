@@ -8,7 +8,7 @@ import { Subject } from "@angular/core/src/facade/async";
 @Injectable()
 export class CurrentColorService {
   // Represents the currently selected color, or null if none.
-  public currentColor: Color;
+  currentColor: Color;
 
   // Instead of utilizing shared memory space setup a mechanism by
   // which components can subscribe to color changes.

@@ -1,6 +1,7 @@
+import { Message } from './../shared/message-model';
 import { Color } from './../shared/color.model';
 import { CurrentColorService } from './../current-color.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'color-jumbotron',
@@ -9,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorJumbotronComponent implements OnInit {
   jumbotronColor: Color;
+
+  // Shows either the error message or the instructions if no color
+  // is currently showing.
+  @Input() message: Message;
   
   // Necessary for updating the current jumbotronColor
   _subscription;

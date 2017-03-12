@@ -13,10 +13,9 @@
   <div class="container-fluid" *ngIf="!jumbotronColor">
     <div class="row">
       <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appTitle">Quick Colors</h1>
-      <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 instructions">generate hexidecimal colors quickly</h3>
+      <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 message"
+       [class.text-danger]="message.isError">{{message.text}}</h3>
     </div>
-      
-      
   </div>
   
 </div>
