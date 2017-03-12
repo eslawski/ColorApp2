@@ -4,10 +4,14 @@
 
 /**
     Hardcode the height of the header so it is easy to determine
-    how to fix the header to the top.
+    how to fix the header to the top. Also vertically and horizontally
+    center the contents.
 */
 .custom-jumbotron {
     height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hexValue,
@@ -42,9 +46,4 @@
 .row > [class*='col-'] {
   display: flex;
   flex-direction: column;
-}
-
-/** Shrinken the default bottom margin for a bootstrap jumbotron*/
-.jumbotron {
-    margin-bottom: 10px;
 }
