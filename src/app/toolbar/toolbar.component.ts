@@ -25,6 +25,9 @@ export class ToolbarComponent implements OnInit {
           this.hexString = color.hexCode;
         }
       });
+
+      // Initialize the rainbow steps drop down to 10
+      this.rainbowSteps = "10";
    }
 
   ngOnInit() {
@@ -54,7 +57,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   onRainbowClicked() {
-    // TODO validate
     this.colorCollectionService.generateRainbow(parseInt(this.rainbowSteps));
   }
 
