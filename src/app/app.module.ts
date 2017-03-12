@@ -10,6 +10,7 @@ import { ColorSquareComponent } from './color-square/color-square.component';
 import { ColorCollectionComponent } from './color-collection/color-collection.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ColorJumbotronComponent } from './color-jumbotron/color-jumbotron.component';
+import { ColorAppHeaderComponent } from './color-app-header/color-app-header.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ColorJumbotronComponent } from './color-jumbotron/color-jumbotron.compo
     ColorSquareComponent,
     ColorCollectionComponent,
     ToolbarComponent,
-    ColorJumbotronComponent
+    ColorJumbotronComponent,
+    ColorAppHeaderComponent
   ],
   imports: [
     BrowserModule,

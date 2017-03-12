@@ -2,6 +2,14 @@
     text-align: center;
 }
 
+/**
+    Hardcode the height of the header so it is easy to determine
+    how to fix the header to the top.
+*/
+.custom-jumbotron {
+    height: 180px;
+}
+
 .hexValue,
 .rgbValue,
 .tint,

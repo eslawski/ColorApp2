@@ -27,7 +27,7 @@ export class ColorCollectionService {
 
   generateRainbow(steps: number) {
     const TWO_PI = Math.PI*2;
-    for (var i = 0; i < steps+1; ++i) {
+    for (var i = 0; i < steps; ++i) {
       let red = Math.floor(Math.sin(i*TWO_PI/steps + 0) * 127 + 128);
       let green = Math.floor(Math.sin(i*TWO_PI/steps + TWO_PI/3) * 127 + 128);
       let blue = Math.floor(Math.sin(i*TWO_PI/steps + 2*TWO_PI/3) * 127 + 128);

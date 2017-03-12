@@ -1,3 +1,10 @@
+.toolbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    opacity: .9;
+}
+
 .btn {
     outline: none;
 }
