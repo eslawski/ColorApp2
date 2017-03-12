@@ -2,9 +2,9 @@
   <div class="container-fluid" *ngIf="jumbotronColor">
     <div class="container-fluid"[class.darkColor]="!jumbotronColor.isLight">
       <div class="row">
-        <div class="col-lg-4 glyphicon glyphicon-minus-sign tint" (click)="onTintClick(jumbotronColor)"></div>
-        <h1  class="col-lg-4 hexValue">#{{jumbotronColor.hexCode}}</h1>
-        <div class="col-lg-4 glyphicon glyphicon-plus-sign shade" (click)="onShadeClick(jumbotronColor)"></div>
+        <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2 glyphicon glyphicon-minus-sign tint" (click)="onTintClick(jumbotronColor)"></div>
+        <h1  class="col-lg-4 col-md-4 col-sm-8 col-xs-8 hexValue">#{{jumbotronColor.hexCode}}</h1>
+        <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2 glyphicon glyphicon-plus-sign shade" (click)="onShadeClick(jumbotronColor)"></div>
       </div>
     
       <h3 class="rgbValue">RGB({{jumbotronColor.red}}, {{jumbotronColor.green}}, {{jumbotronColor.blue}})</h3>

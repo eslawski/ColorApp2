@@ -1,3 +1,8 @@
 .btn {
     outline: none;
 }
+
+/* Add some spacing underneath the add button for smaller screen sizes.*/
+.addButtonGrp {
+    margin-bottom: 10px;
+}

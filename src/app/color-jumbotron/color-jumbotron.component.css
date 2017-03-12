@@ -1,6 +1,5 @@
 :host {
     text-align: center;
-    opacity: .8;
 }
 
 .hexValue,
@@ -35,4 +34,9 @@
 .row > [class*='col-'] {
   display: flex;
   flex-direction: column;
+}
+
+/** Shrinken the default bottom margin for a bootstrap jumbotron*/
+.jumbotron {
+    margin-bottom: 10px;
 }

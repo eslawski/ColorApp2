@@ -94,14 +94,14 @@ export class ToolbarComponent implements OnInit {
  */
   validateHexString(hexString: String) {
     if(hexString.length != 6) {
-      return "Error: hex code too short";
+      return "Hex code too short";
     }
 
       // Validate the characters of the hexString
       let validHexChars = "1234567890ABCDEF";
       for(let i = 0; i < hexString.length; i++) {
         if(validHexChars.indexOf(hexString[i]) == -1) {
-          return "Error: valid characters are 0-9 or A-F";
+          return "Valid characters are 0-9 or A-F";
         }
       }
 
