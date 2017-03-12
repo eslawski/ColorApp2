@@ -47,7 +47,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   onHexStringChange($event) {
-    this.hexString = $event;
+    this.hexString = $event.toUpperCase();
     let error = this.validateHexString(this.hexString);
 
     // Always clear the error right when the user types
