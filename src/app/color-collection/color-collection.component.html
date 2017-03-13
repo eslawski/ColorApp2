@@ -1,7 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="colors.length > 0">
 	<div class="row">
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 top-bottom-padding" *ngFor="let color of colors">
       <color-square [color]="color"></color-square>
     </div>
 	</div>
+</div>
+
+<div class="container-fluid no-colors-placeholder" *ngIf="colors.length == 0">
+  <h2>There are no colors in your collection :(</h2>
 </div>
