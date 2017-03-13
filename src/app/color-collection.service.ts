@@ -8,9 +8,10 @@ export class ColorCollectionService {
 
   constructor() {
     this.colors = [];
-    this.colors.push(new Color("123456"));
-    this.colors.push(new Color("00FF00"));
     this.colors.push(new Color("FF0000"));
+    this.colors.push(new Color("00FF00"));
+    this.colors.push(new Color("0000FF"));
+
   }
 
   getColorCollection() {
