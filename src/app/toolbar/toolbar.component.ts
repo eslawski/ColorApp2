@@ -31,6 +31,9 @@ export class ToolbarComponent implements OnInit {
 
       // Initialize the rainbow steps drop down to 10
       this.rainbowSteps = "10";
+
+      // Initialize the hexString to the empty string
+      this.hexString = "";
    }
 
   ngOnInit() {
