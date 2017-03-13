@@ -11,22 +11,8 @@
 
 /**
     Represents the main content (ColorCollection). Its top padding needs
-    to be equal to or greater than the header content. This css rule
-    applies to the XS screen size (bootstrap was design with mobile first
-    in mind). We need extra padding here because the toolbar is forced to
-    a second row making it larger.
+    to be equal to or greater than the header content.
 */
 .main-content {
-    padding-top: 255px;
-}
-
-/**
-    Similar to the above rule, specifies the top padding for the main content
-    of the application. This rule applies to all other screen sizes besides mobile.
-*/
-@media (min-width: 768px) {
-    .main-content {
-        padding-top: 230px;
-    }
-    
+    padding-top: 235px;
 }

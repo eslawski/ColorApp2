@@ -1,5 +1,5 @@
 <div class="row toolbar">
-  <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-7">
     <div class="input-group addButtonGrp">
       <span class="input-group-addon">#</span>
       <input type="text" class="form-control" placeholder="hex code" maxlength="6"
@@ -11,11 +11,7 @@
     </div>
   </div>
 
-  <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
-    <button class="btn btn-danger" (click)="onClearClicked()">Clear All</button>
-  </div>
-
-  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
     <div class="input-group">
       <select class="form-control" [(ngModel)]="rainbowSteps">
         <option>10</option>
@@ -30,9 +26,16 @@
         <option>100</option>
       </select>
       <span class="input-group-btn">
-        <button class="btn btn-info" type="button" (click)="onRainbowClicked()">Rainbow</button>
+        <button class="btn btn-info" type="button" (click)="onRainbowClicked()">
+          <img class="hidden-lg hidden-md hidden-sm rainbowImg" src="/assets/images/rainbow.png"/>
+          <div class="hidden-xs">Rainbow</div>
+          </button>
       </span>
     </div>
+  </div>
+
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+    <button class="btn btn-danger" (click)="onClearClicked()">Clear All</button>
   </div>
 
 </div>

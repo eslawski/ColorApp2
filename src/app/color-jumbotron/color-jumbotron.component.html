@@ -1,15 +1,17 @@
 <div class="custom-jumbotron" [style.background-color]="getBackgroundColor()">
-  <div class="container-fluid" *ngIf="jumbotronColor">
-    <div class="container-fluid"[class.darkColor]="!jumbotronColor.isLight">
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 glyphicon glyphicon-minus-sign tint" title="Tint" (click)="onTintClick(jumbotronColor)"></div>
-        <h1  class="col-lg-8 col-md-8 col-sm-8 col-xs-8 hexValue">#{{jumbotronColor.hexCode}}</h1>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 glyphicon glyphicon-plus-sign shade" title="Shade" (click)="onShadeClick(jumbotronColor)"></div>
-      </div>
-    
+    <div class="container-fluid" *ngIf="jumbotronColor" [class.darkColor]="!jumbotronColor.isLight">
+      <table class="row">
+        <tr>
+          <td><div class="glyphicon glyphicon-minus-sign tint" title="Tint" (click)="onTintClick(jumbotronColor)"></div></td>
+          <td><h1  class="hexValue">#{{jumbotronColor.hexCode}}</h1></td>
+          <td><div class="glyphicon glyphicon-plus-sign shade" title="Shade" (click)="onShadeClick(jumbotronColor)"></div></td>
+        </tr>
+
+      </table>
+
+
       <h3 class="rgbValue">RGB({{jumbotronColor.red}}, {{jumbotronColor.green}}, {{jumbotronColor.blue}})</h3>
     </div>
-  </div>
   <div class="container-fluid" *ngIf="!jumbotronColor">
     <div class="row">
       <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appTitle">Quick Colors</h1>
