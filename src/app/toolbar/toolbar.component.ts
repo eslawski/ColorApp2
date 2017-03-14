@@ -1,8 +1,11 @@
 import { CurrentColorService } from './../current-color.service';
 import { Color } from './../shared/color.model';
 import { ColorCollectionService } from 'app/color-collection.service';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 
+/**
+ * Toolbar that contains controls for manipulating the color collection.
+ */
 @Component({
   selector: 'toolbar',
   templateUrl: './toolbar.component.html',
@@ -10,45 +13,70 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  hexString: String;
+  // The user inputed hex string. Used in two way data binding.
+  hexString: string;
+
   rainbowSteps: string;
 
-  // Triggers when the user encounters and error or does something to address
+  // Triggers when the user encounters an error or does something to address
   // correct their error.
   @Output() errorStateChanged: EventEmitter<string> = new EventEmitter<string>();
 
-   // Necessary for updating the current color
+   // Used to subscribe this component to color changes. When the color changes we
+   // want to populate the input field automatically.
   _subscription;
 
+/**
+ * Constructor
+ * @param colorCollectionService 
+ * @param currentColorService 
+ */
   constructor(private colorCollectionService : ColorCollectionService,
-   private currentColorService: CurrentColorService) {
-      // Subscribe to the color change event
-      this._subscription = currentColorService.colorChange.subscribe((color) => {
-        if(color != null) {
-          this.hexString = color.hexCode;
-        }
-      });
+              private currentColorService: CurrentColorService) { }
 
-      // Initialize the rainbow steps drop down to 10
-      this.rainbowSteps = "10";
-
-      // Initialize the hexString to the empty string
-      this.hexString = "";
-   }
-
+  /**
+   * Called after angular is done creating this component.
+   */
   ngOnInit() {
+    // Subscribes this component to the color change event
+    this._subscription = this.currentColorService.colorChange.subscribe((color) => {
+      if(color != null) {
+        this.hexString = color.hexCode;
+      }
+    });
+
+    // Initialize the rainbow steps drop down to 10
+    this.rainbowSteps = "10";
+
+    // Initialize the hexString to the empty string
+    this.hexString = "";
   }
 
+  /**
+   * To avoid possibility of memory leak it is good practice to unsubscribe
+   * once the component is destoryed.
+   */
   ngOnDestroy() {
     if(this._subscription != null) {
       this._subscription.unsubscribe();
     }
   }
 
+ /**
+  * Fires the errorStateChanged event to notify listeners that there
+  * is no longer an active error.
+  */
   clearError() {
     this.errorStateChanged.next(null);
   }
 
+ /**
+  * Called as the user types into the hex code input field. Every time
+  * the user types their input is passivley validated. Once it becomes a
+  * valid hex code it informs the CurrentColorService so it can provide
+  * the user with instant feedback.
+  * @param event The hex string
+  */
   onHexStringChange($event) {
     this.hexString = $event.toUpperCase();
     let error = this.validateHexString(this.hexString);
@@ -68,6 +96,12 @@ export class ToolbarComponent implements OnInit {
     }
   }
 
+/**
+ * Invoked once the user clicks the add button. At this point is when the
+ * hex string is validated. If it is invalid we need to fire the errorStateChanged
+ * event to inform our parent of the error. Otherwise add the valid color to our
+ * collection.
+ */
   onAddClicked() {
     let error = this.validateHexString(this.hexString);
     if(error == null) {
@@ -82,10 +116,17 @@ export class ToolbarComponent implements OnInit {
 
   }
 
+  /**
+   * Invoked once the user pushes the generate rainbow button to generate
+   * colors of the rainbow.
+   */
   onRainbowClicked() {
     this.colorCollectionService.generateRainbow(parseInt(this.rainbowSteps));
   }
 
+/**
+ * Invoked once the user clicks the clear button to remove all colors from the collection.
+ */
   onClearClicked() {
     this.colorCollectionService.clearColors();
     this.currentColorService.setCurrentColor(null);

@@ -1,3 +1,7 @@
+/**
+* Adds padding to the top/bottom of each row as bootstrap
+* does not provide this to wrapped rows.
+*/
 .top-bottom-padding {
     padding-top: 15px;
     padding-bottom: 15px;

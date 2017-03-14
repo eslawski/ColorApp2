@@ -5,10 +5,18 @@
     opacity: .9;
 }
 
+/**
+* Removes odd outline that bootstrap adds to buttons
+* that currently have focus.
+*/
 .btn {
     outline: none;
 }
 
+/**
+* Must reduce the size of the rainbow icon to fit it
+* properly on the button.
+*/
 .rainbowImg {
     height: 18px;
 }

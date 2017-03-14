@@ -12,6 +12,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ColorJumbotronComponent } from './color-jumbotron/color-jumbotron.component';
 import { ColorAppHeaderComponent } from './color-app-header/color-app-header.component';
 
+/**
+ * The root module that bootstraps our root component to the DOM.
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +29,7 @@ import { ColorAppHeaderComponent } from './color-app-header/color-app-header.com
     FormsModule,
     HttpModule
   ],
-  // Since the services are defined on the root module all components
-  // share the same instances.
+  // Since the services are defined on the root module all components share the same instances.
   providers: [ColorCollectionService, CurrentColorService],
   bootstrap: [AppComponent]
 })

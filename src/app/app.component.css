@@ -1,7 +1,7 @@
 /*
-    Fixes the header (jumbotron + toolbar) to the top of the screen.
-    The heights of the jumbotron + toolbar must be equal to or greater
-    than the top padding of the next component to follow (ColorCollection).
+* Fixes the header (jumbotron + toolbar) to the top of the screen.
+* The heights of the jumbotron + toolbar must be equal to or greater
+* than the top padding of the next component to follow (ColorCollection).
 */
 .fixed-header {
     width: 100%;
@@ -10,8 +10,8 @@
 }
 
 /**
-    Represents the main content (ColorCollection). Its top padding needs
-    to be equal to or greater than the header content.
+* Represents the main content (ColorCollection). Its top padding needs
+* to be equal to or greater than the header content.
 */
 .main-content {
     padding-top: 235px;

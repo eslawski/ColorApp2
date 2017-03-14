@@ -1,33 +1,28 @@
-:host {
-    text-align: center;
-}
-
 /**
-    Hardcode the height of the header so it is easy to determine
-    how to fix the header to the top. Also vertically and horizontally
-    center the contents.
+* Hardcode the height of the header so it is easy to determine
+* how to fix the header to the top. Also vertically and horizontally
+* center the contents.
 */
 .custom-jumbotron {
     height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-.hexValue,
-.rgbValue,
-.tint,
-.shade {
+/**
+* Use lighter text when the jumbotron color is dark
+*/
+.custom-jumbotron .darkColor {
+    color: #FFFFFF;
+}
+
+.hexValue, .rgbValue, .tint, .shade {
     opacity: .8;
 }
 
-
-.darkColor {
-    color: white;
-}
-
-.tint,
-.shade {
+.tint, .shade {
     font-size: 3em;
     display: flex;
     justify-content: center;
@@ -35,19 +30,10 @@
     cursor: pointer;
 }
 
-/** Force all bootstrap columns to have the same height. */
-.row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-}
-.row > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
-}
-
+/**
+* Hardcode the width of the hex value so it stays the same size
+* even if the length of the hex value changes.
+*/
 .hexValue {
-    margin: 0px 15px;
+    width: 200px;
 }

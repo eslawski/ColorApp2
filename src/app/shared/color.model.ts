@@ -1,11 +1,11 @@
 export class Color {
-    public hexCode: String;
+    public hexCode: string;
     public red: number;
     public green: number;
     public blue: number;
     public isLight: boolean;
 
-    constructor(hexCode: String) {
+    constructor(hexCode: string) {
         this.hexCode = hexCode;
 
         // Extract the parts of the hex code into their rgb counterparts.
